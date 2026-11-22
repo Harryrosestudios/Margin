@@ -71,3 +71,7 @@ Sources/Margin/
   MathLayout.swift         — node tree → laid-out boxes
   MathSymbols.swift        — symbol table + math-alphabet Unicode mapping
 ```
+
+## License
+
+MIT — see [LICENSE](LICENSE).
