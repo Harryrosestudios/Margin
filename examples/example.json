@@ -1,0 +1,14 @@
+{
+  "name": "heat-equation-sim",
+  "version": 3,
+  "diffusivity": 0.00014,
+  "active": true,
+  "boundaryCondition": null,
+  "grid": {
+    "points": 512,
+    "spacing": 0.01
+  },
+  "observers": ["x=0.1", "x=0.5", "x=0.9"],
+  "notes": "Comment-tolerant // this stays literal inside the string",
+  "metadata": {}
+}

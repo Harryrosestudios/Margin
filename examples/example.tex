@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage{amsmath}
+\newcommand{\R}{\mathbb{R}}
+\newtheorem{theorem}{Theorem}
+\title{On the Heat Equation}
+\author{H. Rose}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We review the classical heat equation and its fundamental solution on $\R$, following the exposition of Fourier (1822) -- still the clearest account after two centuries.
+\end{abstract}
+
+\section{Introduction}
+The heat equation describes diffusion over time. Its \textbf{fundamental solution} is a Gaussian kernel, and the \emph{diffusivity} $\alpha$ controls the rate of spread. See~\cite{fourier1822} for the original treatment.
+
+\subsection{Basic setup}
+Consider a rod of infinite length. The temperature $u(x,t)$ satisfies
+\begin{equation}
+\label{eq:heat}
+\frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2}
+\end{equation}
+Equation~\eqref{eq:heat} is linear and parabolic.
+
+\begin{theorem}[Fundamental solution]
+\label{thm:fund}
+The solution to \eqref{eq:heat} with initial data $u_0$ is
+$$u(x,t) = \frac{1}{\sqrt{4\pi\alpha t}} \int_{-\infty}^{\infty} u_0(y)\, e^{-(x-y)^2/4\alpha t}\, dy.$$
+\end{theorem}
+
+\begin{proof}
+Apply the Fourier transform in $x$ and solve the resulting ODE in $t$.
+\end{proof}
+
+By Theorem~\ref{thm:fund}, smoothing is instantaneous.\footnote{This is a famous and somewhat alarming feature of parabolic equations.}
+
+\subsection{Properties}
+\begin{itemize}
+  \item Linear and parabolic
+  \item Smooths discontinuities instantly
+  \item Conserves total heat $\int_\R u\,dx$
+\end{itemize}
+
+\begin{table}
+\centering
+\begin{tabular}{lcr}
+\hline
+Symbol & Meaning & Units \\
+\hline
+$\alpha$ & diffusivity & m$^2$/s \\
+$u_0$ & initial condition & K \\
+\end{tabular}
+\caption{Notation used throughout.}
+\label{tab:notation}
+\end{table}
+
+\begin{quote}
+``Heat, like a liquid, flows from hot to cold.'' --- a common but imprecise analogy.
+\end{quote}
+
+\begin{verbatim}
+def step(u, alpha, dt, dx):
+    return u + alpha * dt / dx**2 * laplacian(u)
+\end{verbatim}
+
+\begin{thebibliography}{9}
+\bibitem{fourier1822} J. Fourier, \textit{Th\'eorie analytique de la chaleur}, 1822.
+\end{thebibliography}
+
+\end{document}
