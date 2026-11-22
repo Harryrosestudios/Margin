@@ -6,6 +6,10 @@ dependencies** — no SwiftMath, no markdown library, no JSON library. Everythin
 renders through Apple's own frameworks (Foundation's markdown parser, Core Text,
 Core Graphics).
 
+| Markdown | JSON | LaTeX |
+| --- | --- | --- |
+| ![Markdown preview with inline and display math](screenshots/markdown.png) | ![JSON outline preview](screenshots/json.png) | ![LaTeX document preview](screenshots/latex.png) |
+
 ## What it does
 
 - **Editor / Split / Preview** modes (⌘1 / ⌘2 / ⌘3), with a locked-scrolling
